@@ -46,7 +46,7 @@ En el directorio resources/docs se incluyen 2 archivos:
 2. Un archivo de excel nombrado **Users** que servirá de guía para la carga masiva de usuarios.
 
 
-**Funcionamiento del código**
+## Funcionamiento del código
 
 La primer vista que se muestra será una tabla con la lista de usuarios registrados, en la parte superior izquierda se encontran con 2 botones, el primero con la leyenda "Nuevo usuario" el cual abrirá un modal que permitirá hacer el registro de un nuevo usuario al llenar el fomulario.
 El segundo boton con la leyenda "Importar usuarios" redireccionará a una segunda vista en la cual se podra hacer la carga masiva de usuarios haciendo uso de un archivo excel.
