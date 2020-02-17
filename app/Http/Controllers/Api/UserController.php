@@ -10,11 +10,22 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+    /**
+     * Retorna los usuarios registrados
+     *
+     * @return Array $users
+     */
     public function getUsers(){
         $users = User::all();
         return response([ 'users' => $users ]);
     }
 
+    /**
+     * Recibe y valida los datos enviados para el registro de un nuevo usuario
+     *
+     * @param Request $request
+     * @return Array $response
+    */
     public function create(Request $request){
         $response=[
             'result' => 'error',
@@ -81,6 +92,12 @@ class UserController extends Controller
     }
 
 
+    /**
+     * Valida y actualiza los datos de un usuario
+     *
+     * @param Request $request
+     * @return Array $response
+     */
     public function update(Request $request){
         $response=[
             'result' => 'error'
@@ -128,10 +145,22 @@ class UserController extends Controller
         return $response;
     }
 
+    /**
+     * Retorna la informacion de un usuario en especifico
+     *
+     * @param User $user
+     * @return Array $user
+     */
     public function getUser(User $user){
         return response([ 'user' => $user ]);
     }
 
+    /**
+     * Elimina un usuario
+     *
+     * @param User $user
+     * @return void
+     */
     public function delete(User $user){
         $response = [
             'result'=> 'error'

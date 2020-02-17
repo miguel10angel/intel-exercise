@@ -4,17 +4,28 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Imports\UsersImport;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Excel;
 
 class ImportController extends Controller
 {
+    /**
+     * Redirecciona a la vista para importar archivos
+     *
+     * @return view
+     */
     public function index(){
         return view('import');
     }
 
+    /**
+     * Recive un archivo en base_64 y lo procesa para hacer el registro masivo de usuarios
+     *
+     * @param Request $request
+     * @return Array $reponse
+     */
     public function uploadexcel(Request $request)
     {
         $response = [

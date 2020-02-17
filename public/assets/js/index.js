@@ -40,6 +40,9 @@ $(document).ready(function() {
 
 });
 
+/**
+ * Consulta la api para obtener todos los usuarios registrados en la BD
+ */
 function getUsers() {
     var options = {
         method: 'GET',
@@ -58,6 +61,10 @@ function getUsers() {
 
 }
 
+/**
+ * Rellena la tabla con los datos traidos atravez de la api
+ * @param {Array} users 
+ */
 function fillTable(users) {
     window.table = $('#data_table').DataTable({
         data: users,
@@ -74,6 +81,11 @@ function fillTable(users) {
     });
 }
 
+/**
+ * Consume la api para la creación de un nuevo usuario
+ * @param {string} file_base_64 
+ * @param {form} form 
+ */
 function createUser(file_base_64, form) {
     var formData = form.serializeArray();
     var data = {
@@ -101,6 +113,10 @@ function createUser(file_base_64, form) {
     });
 }
 
+/**
+ * Consulta y consume la api para la actualización de datos de un usuario.
+ * @param {form} form 
+ */
 function updateUser(form) {
     var formData = form.serializeArray();
     var data = {
@@ -131,6 +147,10 @@ function updateUser(form) {
     });
 }
 
+/**
+ * Consulta la api para obtener los datos de un usuario en especifico
+ * @param {Integer} user 
+ */
 function getUser(user) {
     var options = {
         method: 'GET',
@@ -147,6 +167,10 @@ function getUser(user) {
         });
 }
 
+/**
+ * Llena y muestra el modal con los datos del usuario recibido
+ * @param {Object} user 
+ */
 function fillForm(user) {
     $('#modalUpdate input[name=id]').val(user.id);
     $('#modalUpdate input[name=name]').val(user.name);
@@ -158,6 +182,11 @@ function fillForm(user) {
     $('#modalUpdate').modal('show');
 }
 
+/**
+ * Pide la confirmación para eliminar un usuario
+ * @param {int} user 
+ * @param {in} row 
+ */
 function deleteUser(user, row) {
     swal({
         title: "Confirmar",
@@ -172,6 +201,11 @@ function deleteUser(user, row) {
     });
 }
 
+/**
+ * Consume la api para elimiar a un usuario
+ * @param {int} user 
+ * @param {int} row 
+ */
 function excuteDelete(user, row) {
     $.ajax({
         url: '/users/' + user + '/delete',
@@ -190,6 +224,11 @@ function excuteDelete(user, row) {
     });
 }
 
+/**
+ * Convierte el archivo recibido a base_64 despues ejecuta el método para enviar el archivo
+ * @param {File} file 
+ * @param {Form} form 
+ */
 function getBase64(file, form) {
     var reader = new FileReader();
     reader.readAsDataURL(file);

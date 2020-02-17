@@ -25,7 +25,11 @@ $(document).ready(function() {
 
 });
 
-
+/**
+ * Recive y envia un archivo en base_64 y espera la respuesta del registro masivo de usuarios
+ * @param {string} file_base_64 
+ * @param {boolean} delete_rows 
+ */
 function processFile(file_base_64, delete_rows) {
     swal({
         title: "",
@@ -59,6 +63,11 @@ function processFile(file_base_64, delete_rows) {
     });
 }
 
+/**
+ * Convierte el archivo recibido a base_64 despues ejecuta el método para enviar el archivo
+ * @param {File} file 
+ * @param {Boolean} delete_rows 
+ */
 function getBase64(file, delete_rows) {
     var reader = new FileReader();
     reader.readAsDataURL(file);
@@ -71,6 +80,10 @@ function getBase64(file, delete_rows) {
     };
 }
 
+/**
+ * Limpia y rellena la tabla con la informacion de los usuarios registrados en la carga masiva.
+ * @param {Array} users 
+ */
 function fillImport(users) {
     var table = $("table#TableImport tbody");
     table.empty();
