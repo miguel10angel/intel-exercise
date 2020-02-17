@@ -1,0 +1,55 @@
+.uploader .preview {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: center center no-repeat;
+    background-size: cover;
+}
+
+.preview {
+    width: 80px;
+    height: 50px;
+    background: center center no-repeat;
+    background-size: cover;
+    border-radius: 3px;
+}
+
+.preview.dz-clickable {
+    width: 100%;
+    height: 180px;
+    position: relative;
+    cursor: pointer;
+    border-radius: 5px;
+    background-image: url('/assets/img/default.png');
+}
+
+.preview.dz-clickable::after {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    bottom: 0;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    content: "Agregar foto";
+    background: rgba(0, 0, 0, 0.5);
+    transition: all ease-in 0.2s;
+    opacity: 0.8;
+    border-radius: 0 0 5px 5px;
+}
+
+.preview.dz-clickable:hover::after {
+    opacity: 1;
+}
+
+.custom-file-input~.custom-file-label::after {
+    content: "Buscar";
+}
+
+.m-l-5 {
+    margin-left: 5px;
+}
+
+.m-t-10 {
+    margin-top: 10px;
+}
